@@ -1,6 +1,6 @@
 #'---
-#' title: "TSCI 5050: Introduction to Data Science"
-#' author: 'Author One ^1^, Author Two ^1^'
+#' title: "TSCI 5050: Simulating a Data Set"
+#' author: 'Ana Pineda Reyes ^1^, Author Two ^1^'
 #' abstract: |
 #'  | Provide a summary of objectives, study design, setting, participants,
 #'  | sample size, predictors, outcome, statistical analysis, results,
@@ -39,6 +39,10 @@ panderOptions('table.split.table',Inf); panderOptions('table.split.cells',Inf);
 whatisthis <- function(xx){
   list(class=class(xx),info=c(mode=mode(xx),storage.mode=storage.mode(xx)
                               ,typeof=typeof(xx)))};
+#
+# Import Data ----
+DataFile0 <-"data/R test data.xlsx"
+Dat0 <-import(DataFile0)
 # R basic syntax ----
 #'
 #' # R basic syntax
