@@ -427,6 +427,10 @@ Dat0[1,2:5] #takes data from first row, column 2 to 5
 Dat0[1, c(2,2)] #first row, column 2 twice. C use when number are not sequential
 Dat0[c(1,1)]#row 1 twice, all columns
 Dat0[rep(1,6),] #rep is to replicate. coma means to take all the columns
+Dat0[rep(1,nrows),]
+Dat1 <- Dat0[rep(1,nrows),]
+#mutate(Dat1, `CD4 ABS` =12)
+#mutate(Dat1, `CD4 ABS` =rnorm(200, mean = 900, sd = 250)) 
+Dat1 <- mutate(Dat1, `CD4 ABS` =rnorm(n(), mean = 900, sd = 250)) #n() is the number of rows in the current block of data. when you start summ. is the numb of rows in a group
 
-mutate(Dat0)
-mutate(Date, `CD4 ABS` =12)
+#how to add variables step by step

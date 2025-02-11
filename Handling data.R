@@ -26,3 +26,5 @@ Dat1 <- mutate(Dat1
                , `CD4 ABS`=round(rnorm(n(), mean = 900, sd = 250)) #round is to round a number, backcodes (``) is to not confuse names that might give you an error
                , `WBC`=rnorm(n(), mean = 4.9, sd = .6)
                ,`RBC`=rnorm(n(), mean = 8.7, sd = .24))
+sprintf("name=%s, last name=%s age%d, percentil=%% %f","Ana","Pineda",30, 98.5)
+
