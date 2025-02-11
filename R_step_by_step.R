@@ -43,6 +43,7 @@ whatisthis <- function(xx){
 # Import Data ----
 DataFile0 <-"data/R test data.xlsx"
 Dat0 <-import(DataFile0)
+
 # R basic syntax ----
 #'
 #' # R basic syntax
@@ -371,4 +372,61 @@ not_cancelled <- flights %>%
 not_cancelled %>% 
   group_by(year, month, day) %>% 
   summarise(mean = mean(dep_delay))
+#' Title: "TSCI 5050: Simulating a Data Set"
+#' author: 'Ana Pineda Reyes ^1^, Author Two ^1^'
+#' abstract: |
+#'  | Provide a summary of objectives, study design, setting, participants,
+#'  | sample size, predictors, outcome, statistical analysis, results,
+#'  | and conclusions.
+#' documentclass: article
+#' description: 'Manuscript'
+#' clean: false
+#' self_contained: true
+#' number_sections: false
+#' keep_md: true
+#' fig_caption: true
+#' output:
+#'  html_document:
+#'    toc: true
+#'    toc_float: true
+#'    code_folding: show
+#' ---
+#'
+#+ init, echo=FALSE, message=FALSE, warning=FALSE
+# init ----
+# This part does not show up in your rendered report, only in the script,
+# because we are using regular comments instead of #' comments
+debug <- 0;nrows <-200;seed <-11022025; #' seed is to create a random number, that is evently distributed.(you make something random but yet reproducible)
+#To replicate the same vector of random number, set the set seed function
+knitr::opts_chunk$set(echo=debug>-1, warning=debug>0, message=debug>0, class.output="scroll-20", attr.output='style="max-height: 150px; overflow-y: auto;"');
 
+library(ggplot2); # visualisation
+library(GGally);
+library(rio);# simple command for importing and exporting
+library(pander); # format tables
+#library(printr); # set limit on number of lines printed
+library(broom); # allows to give clean dataset
+library(dplyr); #add dplyr library
+
+options(max.print=500);
+panderOptions('table.split.table',Inf); panderOptions('table.split.cells',Inf);
+whatisthis <- function(xx){
+  list(class=class(xx),info=c(mode=mode(xx),storage.mode=storage.mode(xx)
+                              ,typeof=typeof(xx)))};
+#
+# Import Data ----
+DataFile0 <-"data/R test data.xlsx"
+Dat0 <- import(DataFile0)
+# This creates data
+rnorm(200, mean = 900, sd = 250)
+View(data0)
+# Mutates create different columns of data.
+Dat0[1,] # takes the 1st row if the data set
+Dat0[1,2] #take data from first row, second column
+Dat0[1,2:5] #takes data from first row, column 2 to 5
+Dat0[1, c(2,2)] #first row, column 2 twice. C use when number are not sequential
+Dat0[c(1,1)]#row 1 twice, all columns
+Dat0[rep(1,6),] #rep is to replicate. coma means to take all the columns
+
+mutate(Dat0)
+mutate(Date, `CD4 ABS` =12)
