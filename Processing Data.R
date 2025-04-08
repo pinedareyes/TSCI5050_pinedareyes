@@ -1,4 +1,5 @@
 #' title: "TSCI 5050 Processing a Data Set"
+#' Author: Ana Pineda
 ##Copy over the init section
 debug <- 0;nrows <-200;seed <-22;
 
@@ -19,5 +20,15 @@ whatisthis <- function(xx){
   list(class=class(xx),info=c(mode=mode(xx),storage.mode=storage.mode(xx)
                               ,typeof=typeof(xx)))};
 ##Read in the data from Simulated Data set
-##HW try to read the data and play with it 
+
+#%>% is pipe operator used to pass the result of one expression to the next expression as an argument, which can make your code more readable and concise. 
+
+# Import Data ----
+datafile<- "data/Simulated Data.xlsx"
+SimData<- import(datafile) %>%mutate(train=sample(TRUE,FALSE,n(),replace=TRUE))
+#SimData<- mutate(SimData, train=sample(TRUE,FALSE,n(),replace=TRUE))
+
+#Scatter Plot Matrix---- 
+select(SimData, !any_of(c("ID", "PIN", "VISIT", "Specimen ID")))[,50:52] %>% ggpairs()
+#' NOTES:Use to create a scatter plt from the data available. The number of the columns that you want to plot are inside the brackets
 c()

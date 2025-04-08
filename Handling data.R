@@ -1,4 +1,7 @@
-debug <- 0;nrows <-200;seed <-11022025; #' seed is to create a random number, that is evently distributed.(you make something random but yet reproducible)
+#' title: "TSCI 5050 Handling Data"
+#' Author: Ana Pineda
+#' Abstract: Provide an example of how to create data
+debug <- 0;nrows <-1000;seed <-11022025; #' seed is to create a random number, that is evently distributed.(you make something random but yet reproducible)
 #To replicate the same vector of random number, set the set seed function
 # Import Data ----
 DataFile0 <-"data/R test data.xlsx"
@@ -42,6 +45,7 @@ Dat1 <- mutate(Dat1
                                            sample(1:100,n(),replace=TRUE),
                                            sample(1:1000,n(),replace=TRUE),
                                            sample(1:9,n(),replace=TRUE))
+               , IHG=sample(c("I","II","III","IV"), n(),replace=TRUE)
                , PIN=seq_len(n())
                , `CD4 ABS`=round(rnorm(n(), mean = 900, sd = 250)) #round is to round a number, backcodes (``) is to not confuse names that might give you an error
                , `WBC`=rnorm(n(), mean = 4.9, sd = .6)#round to round the numbers

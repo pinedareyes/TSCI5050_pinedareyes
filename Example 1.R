@@ -1,4 +1,4 @@
-debug <- 0;nrows <-200;seed <-22;
+debug <- 0;nrows <-1000;seed <-22;
 
 knitr::opts_chunk$set(echo=debug>-1, warning=debug>0, message=debug>0, class.output="scroll-20", attr.output='style="max-height: 150px; overflow-y: auto;"');
 
@@ -45,14 +45,15 @@ Dat1 <-Dat0[rep(1,nrows),]%>%
                                       sample(1:100,n(),replace = TRUE),
                                       sample(1:1000,n(),replace = TRUE),
                                       sample(1:9,n(),replace = TRUE))
+              , IHG=sample(c("I","II","III","IV"), n(),replace=TRUE)
               , PIN=seq_len(n())
               , `CD4 ABS`=round(rnorm(n(), mean=900, sd=250))
               , `CD8 ABS`=round(rnorm(n(), mean=500, sd=20))
               , `CD4/8 Ratio`=(`CD4 ABS`/`CD8 ABS`) #backcode use when there is spaces in the name
               , WBC=rnorm(n(), mean=4.9, sd=.26)
               , RBC=rnorm(n(), mean=8.7, sd=.24)
-             , across(everything(),~ifelse(sample(1:0,n,replace=TRUE,prob =probmissing ),.x,NA))
-            , Date=as.Date(Date,"%m%d%Y")-sample(0:2,n(),replace=TRUE)
+             , across(everything(),~ifelse(sample(1:0,n(),replace=TRUE,prob =probmissing ),.x,NA))
+            , Date=as.Date(Date,"%m/%d/%Y")-sample(0:2,n(),replace=TRUE)
 )
 SummaryDat1 <-summarize(group_by(Dat1,Date),`CD4 ABS`=mean(`CD4 ABS`),`CD8 ABS`=mean (`CD8 ABS`))
 #summarize agregates the data, and help yo see specific data
