@@ -43,10 +43,10 @@ the_workflow <- workflow() %>%
   add_model(lm_spec)
 lm_fit <- fit(the_workflow,SimData)
 tidy(lm_fit)
-autoplot(lm_fit)
 lm_fit2<- the_workflow %>% update_formula(`CD4/8 Ratio` ~ Glucose *IHG + BUN*IHG + Creatinine*IHG) %>% 
   fit(SimData)
 lm_results<- extract_fit_parsnip(lm_fit)$fit
 lm_results2<- extract_fit_parsnip(lm_fit2)$fit
 #compare models
 anova(lm_results, lm_results2)
+autoplot(lm_results)
